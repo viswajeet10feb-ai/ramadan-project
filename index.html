@@ -93,8 +93,8 @@ section{padding:88px 48px}
 .vis-scroll-card{background:rgba(255,255,255,0.04);border:1px solid rgba(201,146,42,0.15);border-radius:8px;overflow:hidden;transition:border-color .3s}
 .vis-scroll-card:hover{border-color:rgba(201,146,42,0.4)}
 .vis-scroll-inner{height:320px;overflow:hidden;position:relative}
-.vis-scroll-inner img{width:100%;display:block;transition:transform 6s ease}
-.vis-scroll-card:hover .vis-scroll-inner img{transform:translateY(calc(-100% + 320px)) !important}
+.vis-scroll-inner img{width:100%;display:block}
+.vis-scroll-card:hover{border-color:rgba(201,146,42,0.4)}
 .vis-card-label{padding:16px 20px;background:#060F16}
 .vis-card-label strong{display:block;font-size:13px;color:var(--gold-light);margin-bottom:3px}
 .vis-card-label span{font-size:12px;color:rgba(255,255,255,0.4)}
@@ -231,7 +231,9 @@ footer p{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2px;color
       <div class="phone-frame">
         <div class="phone-notch"></div>
         <div class="phone-screen">
-          <img src="Biryani_Final_Adani.jpg" alt="Store Preview">
+          <video autoplay muted loop playsinline style="width:100%;display:block">
+            <source src="Adani_Hero__1_.mp4" type="video/mp4">
+          </video>
         </div>
       </div>
     </div>
@@ -275,24 +277,28 @@ footer p{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2px;color
     </div>
   </div>
 
-  <!-- Two scroll cards -->
+  <!-- Two cards -->
   <div class="vis-scroll-wrap">
+    <!-- Left: Hero Banner MP4 video -->
     <div class="vis-scroll-card reveal">
-      <div class="vis-scroll-inner">
-        <img src="Biryani_Final_Adani.jpg" alt="Hero &amp; Categories">
+      <div class="vis-scroll-inner" style="height:360px">
+        <video autoplay muted loop playsinline style="width:100%;display:block;height:360px;object-fit:cover;object-position:top">
+          <source src="Adani_Hero__1_.mp4" type="video/mp4">
+        </video>
       </div>
       <div class="vis-card-label">
-        <strong>Hero Banner + Category Sections</strong>
-        <span>Hover to scroll ↓</span>
+        <strong>Hero Banner — Animated</strong>
+        <span>After Effects · Fortune &amp; Tata · Ramadan theme</span>
       </div>
     </div>
+    <!-- Right: Bottom half of store static -->
     <div class="vis-scroll-card reveal">
-      <div class="vis-scroll-inner">
-        <img src="Biryani_Final_Adani.jpg" alt="Products &amp; CTA" style="transform:translateY(-30%)">
+      <div class="vis-scroll-inner" style="height:360px;overflow:hidden">
+        <img src="Biryani_Final_Adani.jpg" alt="Products &amp; CTA" style="width:100%;display:block;margin-top:-55%">
       </div>
       <div class="vis-card-label">
         <strong>Products + Biryani Corner CTA</strong>
-        <span>Hover to scroll ↓</span>
+        <span>Deal cards · Round the clock · Closing CTA</span>
       </div>
     </div>
   </div>
