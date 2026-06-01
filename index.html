@@ -69,15 +69,10 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
   height:500px;
   position:relative;
 }
-/* Continuous seamless scroll - no break, no pause */
 .phone-screen .store-scroll{
   width:100%;
   display:block;
-  animation:scrollPhone 20s linear infinite;
-}
-@keyframes scrollPhone{
-  0%{transform:translateY(0)}
-  100%{transform:translateY(-66%)}
+  will-change:transform;
 }
 .phone-glow{position:absolute;width:320px;height:320px;border-radius:50%;background:radial-gradient(circle,rgba(201,146,42,0.25) 0%,transparent 70%);top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none}
 
@@ -90,10 +85,11 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
   position:relative;
 }
 
-/* Mini video banner */
+/* Mini video banner - larger and prominent */
 .mini-banner-wrap{
   display:flex;flex-direction:column;gap:8px;
-  margin-top:40px;
+  margin-top:20px;
+  align-self:flex-start;
 }
 .mini-banner-label{
   font-family:'DM Mono',monospace;
@@ -101,22 +97,24 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
   color:var(--gold);text-transform:uppercase;
 }
 .mini-banner{
-  width:160px;
-  border-radius:10px;overflow:hidden;
-  border:2px solid rgba(201,146,42,0.5);
-  box-shadow:0 8px 32px rgba(0,0,0,0.5);
+  width:210px;
+  border-radius:12px;overflow:hidden;
+  border:2px solid rgba(201,146,42,0.6);
+  box-shadow:0 12px 40px rgba(0,0,0,0.6),0 0 0 4px rgba(201,146,42,0.1);
   position:relative;
+  background:#000;
 }
 .mini-banner video{
   width:100%;display:block;
+  min-height:120px;
 }
 .mini-banner-overlay{
   position:absolute;bottom:0;left:0;right:0;
   padding:8px 10px;
-  background:linear-gradient(transparent,rgba(0,0,0,0.7));
+  background:linear-gradient(transparent,rgba(0,0,0,0.8));
   font-family:'DM Mono',monospace;
   font-size:9px;letter-spacing:1px;
-  color:rgba(255,255,255,0.6);
+  color:rgba(255,255,255,0.7);
   text-transform:uppercase;
 }
 
@@ -322,30 +320,32 @@ footer p{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2px;color
     </div>
   </div>
 
-  <!-- PHONE + MINI VIDEO side by side -->
+  <!-- HERO RIGHT: large video banner on top, phone below -->
   <div class="hero-right">
     <div class="phone-glow"></div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:20px;position:relative;z-index:1">
 
-    <!-- Mini video banner preview TOP LEFT of phone -->
-    <div class="mini-banner-wrap">
-      <div class="mini-banner-label">Hero Banner · Animated</div>
-      <div class="mini-banner">
-        <video autoplay muted loop playsinline>
-          <source src="Adani_Hero__1_.mp4" type="video/mp4">
-        </video>
-        <div class="mini-banner-overlay">
-          <span>▶ After Effects</span>
+      <!-- Large video banner -->
+      <div style="width:300px">
+        <div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2px;color:var(--gold);text-transform:uppercase;margin-bottom:8px;text-align:center">✦ Hero Banner · Animated</div>
+        <div style="border-radius:14px;overflow:hidden;border:2px solid rgba(201,146,42,0.6);box-shadow:0 12px 48px rgba(0,0,0,0.6)">
+          <video autoplay muted loop playsinline style="width:100%;display:block">
+            <source src="Adani_Hero__1_.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div style="text-align:center;margin-top:8px;font-family:'DM Mono',monospace;font-size:9px;letter-spacing:1px;color:rgba(255,255,255,0.3);text-transform:uppercase">After Effects · Fortune &amp; Tata</div>
+      </div>
+
+      <!-- Phone mockup below video -->
+      <div class="phone-wrap">
+        <div class="phone-frame">
+          <div class="phone-notch"></div>
+          <div class="phone-screen" id="phoneScreen">
+            <img class="store-scroll" id="storeImg" src="Biryani_Final_Adani.jpg" alt="Store">
+          </div>
         </div>
       </div>
-    </div>
 
-    <div class="phone-wrap">
-      <div class="phone-frame">
-        <div class="phone-notch"></div>
-        <div class="phone-screen">
-          <img class="store-scroll" src="Biryani_Final_Adani.jpg" alt="Store">
-        </div>
-      </div>
     </div>
   </div>
 </section>
@@ -502,71 +502,41 @@ footer p{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2px;color
 
 <!-- TYPOGRAPHY -->
 <section style="background:white;padding:88px 48px">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   <div class="section-eyebrow">03 — Typography</div>
   <h2 class="section-title reveal">Typefaces that carry the visual tone</h2>
-  <p class="section-body reveal">Two typefaces — one for warmth and occasion, one for clarity and structure.</p>
+  <p class="section-body reveal">Two typefaces — one for festive occasion, one for clarity and structure.</p>
 
   <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-top:56px">
 
-    <!-- Font 1: Noto Nastaliq / Decorative headline -->
+    <!-- Font 1: Khodijah -->
     <div class="reveal" style="padding:40px;background:var(--dark);border-radius:10px;border:1px solid rgba(201,146,42,0.2)">
       <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2px;color:var(--gold);text-transform:uppercase;margin-bottom:20px">Display / Hero Font</div>
-      <div style="font-family:'Playfair Display',serif;font-size:56px;font-weight:900;color:white;line-height:1;margin-bottom:8px">Ramadan</div>
-      <div style="font-family:'Playfair Display',serif;font-size:28px;font-style:italic;color:var(--gold-light);margin-bottom:24px">Flavors of</div>
-      <div style="border-top:1px solid rgba(255,255,255,0.08);padding-top:20px">
-        <div style="font-size:13px;color:rgba(255,255,255,0.5);margin-bottom:6px">Font: <span style="color:var(--gold-light);font-weight:600">Noto Nastaliq Urdu / Custom Script</span></div>
-        <div style="font-size:12px;color:rgba(255,255,255,0.3);line-height:1.6">Used in: Hero banner title · "Flavors of Ramadan" heading · Section display text</div>
-        <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap">
-          <span style="font-size:11px;padding:4px 10px;background:rgba(201,146,42,0.1);border:1px solid rgba(201,146,42,0.3);border-radius:2px;color:var(--gold)">Bold 700</span>
-          <span style="font-size:11px;padding:4px 10px;background:rgba(201,146,42,0.1);border:1px solid rgba(201,146,42,0.3);border-radius:2px;color:var(--gold)">Black 900</span>
-          <span style="font-size:11px;padding:4px 10px;background:rgba(201,146,42,0.1);border:1px solid rgba(201,146,42,0.3);border-radius:2px;color:var(--gold)">Italic</span>
+      <div style="font-size:64px;line-height:1.05;margin-bottom:6px;background:linear-gradient(135deg,#E8B84B,#C9922A);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-family:'Georgia',serif;font-style:italic;letter-spacing:2px">Ramadan</div>
+      <div style="font-family:'Poppins',sans-serif;font-size:20px;font-weight:700;color:white;margin-bottom:28px;letter-spacing:1px">FLAVORS OF</div>
+      <div style="border-top:1px solid rgba(255,255,255,0.08);padding-top:20px;display:flex;flex-direction:column;gap:8px">
+        <div style="display:flex;align-items:center;gap:10px">
+          <span style="font-family:'DM Mono',monospace;font-size:10px;color:rgba(255,255,255,0.35);text-transform:uppercase;letter-spacing:1px">Font Name</span>
+          <span style="font-size:14px;color:var(--gold-light);font-weight:600">Khodijah</span>
         </div>
+        <div style="font-size:12px;color:rgba(255,255,255,0.35);line-height:1.7">Used in: Hero banner title · "Flavors of Ramadan" main heading · Festive display moments</div>
       </div>
     </div>
 
-    <!-- Font 2: Body / UI font -->
+    <!-- Font 2: Poppins -->
     <div class="reveal" style="padding:40px;background:var(--cream);border-radius:10px;border:1px solid rgba(0,0,0,0.06)">
       <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2px;color:var(--gold);text-transform:uppercase;margin-bottom:20px">Body / UI Font</div>
-      <div style="font-family:'DM Sans',sans-serif;font-size:32px;font-weight:600;color:var(--dark);line-height:1.2;margin-bottom:8px">Stock up for<br>the perfect Iftar</div>
-      <div style="font-family:'DM Sans',sans-serif;font-size:15px;color:var(--text-muted);margin-bottom:24px;line-height:1.6">Rice & richness · Crunch & indulge<br>Sizzle & spice · Refresh & revive</div>
-      <div style="border-top:1px solid rgba(0,0,0,0.08);padding-top:20px">
-        <div style="font-size:13px;color:var(--text-muted);margin-bottom:6px">Font: <span style="color:var(--teal);font-weight:600">Flipkart Sans / System UI</span></div>
-        <div style="font-size:12px;color:var(--text-muted);line-height:1.6">Used in: Section headings · Product names · Category labels · Body copy</div>
-        <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap">
-          <span style="font-size:11px;padding:4px 10px;background:white;border:1px solid #DDD;border-radius:2px;color:var(--teal)">Regular 400</span>
-          <span style="font-size:11px;padding:4px 10px;background:white;border:1px solid #DDD;border-radius:2px;color:var(--teal)">Medium 500</span>
-          <span style="font-size:11px;padding:4px 10px;background:white;border:1px solid #DDD;border-radius:2px;color:var(--teal)">Bold 700</span>
+      <div style="font-family:'Poppins',sans-serif;font-size:30px;font-weight:700;color:var(--dark);line-height:1.2;margin-bottom:10px">Stock up for<br>the perfect Iftar</div>
+      <div style="font-family:'Poppins',sans-serif;font-size:14px;color:var(--text-muted);margin-bottom:28px;line-height:1.7">Rice &amp; richness · Crunch &amp; indulge<br>Sizzle &amp; spice · Refresh &amp; revive</div>
+      <div style="border-top:1px solid rgba(0,0,0,0.08);padding-top:20px;display:flex;flex-direction:column;gap:8px">
+        <div style="display:flex;align-items:center;gap:10px">
+          <span style="font-family:'DM Mono',monospace;font-size:10px;color:var(--text-muted);text-transform:uppercase;letter-spacing:1px">Font Name</span>
+          <span style="font-size:14px;color:var(--teal);font-weight:700;font-family:'Poppins',sans-serif">Poppins</span>
         </div>
+        <div style="font-size:12px;color:var(--text-muted);line-height:1.7">Used in: Section headings · Product names · Category labels · Body copy · CTA buttons</div>
       </div>
     </div>
 
-  </div>
-
-  <!-- Type scale -->
-  <div class="reveal" style="margin-top:32px;padding:36px;background:var(--dark);border-radius:10px;border:1px solid rgba(201,146,42,0.15)">
-    <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2px;color:var(--gold);text-transform:uppercase;margin-bottom:24px">Type Scale — Store Elements</div>
-    <div style="display:flex;flex-direction:column;gap:16px">
-      <div style="display:flex;align-items:baseline;gap:24px;border-bottom:1px solid rgba(255,255,255,0.05);padding-bottom:16px">
-        <span style="font-family:'DM Mono',monospace;font-size:10px;color:rgba(255,255,255,0.3);width:120px;flex-shrink:0">Hero Title</span>
-        <span style="font-size:11px;color:rgba(255,255,255,0.25);width:80px;flex-shrink:0">48–64px</span>
-        <span style="font-family:'Playfair Display',serif;font-size:32px;font-weight:900;color:white">Flavors of Ramadan</span>
-      </div>
-      <div style="display:flex;align-items:baseline;gap:24px;border-bottom:1px solid rgba(255,255,255,0.05);padding-bottom:16px">
-        <span style="font-family:'DM Mono',monospace;font-size:10px;color:rgba(255,255,255,0.3);width:120px;flex-shrink:0">Section Heading</span>
-        <span style="font-size:11px;color:rgba(255,255,255,0.25);width:80px;flex-shrink:0">20–24px</span>
-        <span style="font-size:22px;font-weight:700;color:rgba(255,255,255,0.85)">Stock up for the perfect Iftar</span>
-      </div>
-      <div style="display:flex;align-items:baseline;gap:24px;border-bottom:1px solid rgba(255,255,255,0.05);padding-bottom:16px">
-        <span style="font-family:'DM Mono',monospace;font-size:10px;color:rgba(255,255,255,0.3);width:120px;flex-shrink:0">Category Label</span>
-        <span style="font-size:11px;color:rgba(255,255,255,0.25);width:80px;flex-shrink:0">14–16px</span>
-        <span style="font-size:15px;font-weight:600;color:var(--gold-light)">Rice & richness</span>
-      </div>
-      <div style="display:flex;align-items:baseline;gap:24px">
-        <span style="font-family:'DM Mono',monospace;font-size:10px;color:rgba(255,255,255,0.3);width:120px;flex-shrink:0">Product Name</span>
-        <span style="font-size:11px;color:rgba(255,255,255,0.25);width:80px;flex-shrink:0">12–13px</span>
-        <span style="font-size:13px;color:rgba(255,255,255,0.5)">Daawat - 5kg Original Basmati Rice</span>
-      </div>
-    </div>
   </div>
 </section>
 
@@ -775,11 +745,40 @@ for(let i=0;i<55;i++){
   s.style.animationDelay=(Math.random()*4).toFixed(1)+'s';
   starsEl.appendChild(s);
 }
+
 // Scroll reveal
 const obs=new IntersectionObserver(es=>{
   es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}})
 },{threshold:.1,rootMargin:'0px 0px -30px 0px'});
 document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
+// Seamless phone scroll — JS-driven, no CSS animation break
+(function(){
+  const screen = document.getElementById('phoneScreen');
+  const img = document.getElementById('storeImg');
+  if(!screen || !img) return;
+
+  let pos = 0;
+  let maxScroll = 0;
+  const speed = 0.5; // px per frame — smooth and continuous
+
+  function getMax(){
+    return img.offsetHeight - screen.offsetHeight;
+  }
+
+  function tick(){
+    maxScroll = getMax();
+    if(maxScroll <= 0){ requestAnimationFrame(tick); return; }
+    pos += speed;
+    if(pos >= maxScroll) pos = 0; // instant reset to top — seamless
+    img.style.transform = 'translateY(-' + pos + 'px)';
+    requestAnimationFrame(tick);
+  }
+
+  // Start after image loads
+  if(img.complete){ tick(); }
+  else { img.onload = tick; }
+})();
 </script>
 </body>
 </html>
