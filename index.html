@@ -38,12 +38,11 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .hero-title{font-family:'Playfair Display',serif;font-size:clamp(42px,5vw,72px);font-weight:900;line-height:1.05;color:var(--white);margin-bottom:8px}
 .hero-title em{font-style:italic;color:var(--gold-light);display:block}
 .hero-subtitle{font-size:15px;color:rgba(255,255,255,0.55);margin:20px 0 32px;line-height:1.7;max-width:440px}
-.hero-tags{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:36px}
+.hero-tags{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:28px}
 .tag{font-size:11px;letter-spacing:1px;padding:6px 14px;border-radius:2px;border:1px solid rgba(201,146,42,0.4);color:var(--gold-light);background:rgba(201,146,42,0.08);text-transform:uppercase}
-/* Tools row */
-.tools-row{display:flex;gap:12px;margin-bottom:36px;align-items:center}
+.tools-row{display:flex;gap:10px;margin-bottom:32px;align-items:center;flex-wrap:wrap}
 .tools-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2px;color:rgba(255,255,255,0.35);text-transform:uppercase}
-.tool-badge{display:flex;align-items:center;gap:6px;padding:7px 14px;border-radius:3px;font-size:12px;font-weight:600;letter-spacing:.5px}
+.tool-badge{display:flex;align-items:center;gap:6px;padding:6px 14px;border-radius:3px;font-size:12px;font-weight:600;letter-spacing:.5px}
 .tool-badge.ps{background:#001e36;border:1px solid #31a8ff;color:#31a8ff}
 .tool-badge.ai{background:#1a0a00;border:1px solid #ff9a00;color:#ff9a00}
 .tool-badge.ae{background:#0d0621;border:1px solid #9999ff;color:#9999ff}
@@ -51,17 +50,39 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .metric-val{font-family:'Playfair Display',serif;font-size:36px;font-weight:700;color:var(--gold-light)}
 .metric-label{font-size:11px;letter-spacing:1px;color:rgba(255,255,255,0.4);text-transform:uppercase;margin-top:4px}
 
-/* Phone mockup */
+/* PHONE MOCKUP */
 .hero-right{display:flex;justify-content:center;align-items:center;position:relative}
 .phone-wrap{position:relative;animation:float 4s ease-in-out infinite}
 @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
-.phone-frame{width:255px;background:#0A1620;border-radius:36px;border:2px solid rgba(201,146,42,0.5);box-shadow:0 0 0 6px rgba(201,146,42,0.08),0 40px 80px rgba(0,0,0,0.6);overflow:hidden}
-.phone-notch{width:80px;height:22px;background:#0A1620;border-radius:0 0 14px 14px;margin:0 auto;position:relative;z-index:2}
-.phone-screen{overflow-y:auto;height:480px;scrollbar-width:none}
-.phone-screen::-webkit-scrollbar{display:none}
-.phone-screen img{width:100%;display:block;animation:scrollPhone 12s ease-in-out infinite alternate}
-@keyframes scrollPhone{0%{transform:translateY(0)}100%{transform:translateY(-65%)}}
-.phone-glow{position:absolute;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(201,146,42,0.2) 0%,transparent 70%);top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none}
+.phone-frame{
+  width:260px;
+  background:#0A1620;
+  border-radius:40px;
+  border:3px solid rgba(201,146,42,0.6);
+  box-shadow:0 0 0 6px rgba(201,146,42,0.1),0 40px 80px rgba(0,0,0,0.7);
+  overflow:hidden;
+  position:relative;
+}
+.phone-notch{width:90px;height:24px;background:#0A1620;border-radius:0 0 16px 16px;margin:0 auto;position:relative;z-index:2}
+.phone-screen{
+  overflow:hidden;
+  height:500px;
+  position:relative;
+}
+/* Video in phone - plays the animated hero */
+.phone-screen video{
+  width:100%;
+  display:block;
+  object-fit:cover;
+}
+/* Below video - store image scrolls */
+.phone-screen .store-scroll{
+  width:100%;
+  display:block;
+  animation:scrollPhone 16s ease-in-out 1s infinite alternate;
+}
+@keyframes scrollPhone{0%{transform:translateY(0)}100%{transform:translateY(-60%)}}
+.phone-glow{position:absolute;width:320px;height:320px;border-radius:50%;background:radial-gradient(circle,rgba(201,146,42,0.25) 0%,transparent 70%);top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none}
 
 /* SECTIONS */
 section{padding:88px 48px}
@@ -77,39 +98,77 @@ section{padding:88px 48px}
 .overview-item-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2px;color:var(--gold);text-transform:uppercase;margin-bottom:10px}
 .overview-item-val{font-size:14px;color:rgba(255,255,255,0.8);line-height:1.6;font-weight:500}
 
-/* ── VISUAL SHOWCASE ── */
-.visual-hero-strip{background:#060F16;padding:64px 48px}
+/* VISUAL SHOWCASE */
+.visual-hero-strip{background:#060F16;padding:72px 48px}
 .visual-hero-strip .section-eyebrow{color:var(--gold)}
 .visual-hero-strip .section-title{color:white}
 .visual-hero-strip .section-body{color:rgba(255,255,255,0.45)}
 
-.vis-main{margin-top:48px;position:relative;border-radius:12px;overflow:hidden;border:1px solid rgba(201,146,42,0.25);box-shadow:0 32px 80px rgba(0,0,0,0.5)}
+/* Full store image */
+.vis-main{
+  margin-top:48px;
+  border-radius:12px;overflow:hidden;
+  border:1px solid rgba(201,146,42,0.25);
+  box-shadow:0 32px 80px rgba(0,0,0,0.5);
+}
 .vis-main img{width:100%;display:block}
-.vis-main-label{padding:20px 28px;background:rgba(6,15,22,0.9);display:flex;align-items:center;justify-content:space-between}
-.vis-main-label span{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2px;color:rgba(255,255,255,0.4);text-transform:uppercase}
+.vis-main-label{
+  padding:18px 28px;background:rgba(6,15,22,0.95);
+  display:flex;align-items:center;justify-content:space-between;
+}
+.vis-main-label span{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2px;color:rgba(255,255,255,0.35);text-transform:uppercase}
 .vis-main-label strong{font-size:13px;color:var(--gold-light)}
 
-.vis-scroll-wrap{margin-top:32px;display:grid;grid-template-columns:1fr 1fr;gap:20px}
-.vis-scroll-card{background:rgba(255,255,255,0.04);border:1px solid rgba(201,146,42,0.15);border-radius:8px;overflow:hidden;transition:border-color .3s}
-.vis-scroll-card:hover{border-color:rgba(201,146,42,0.4)}
-.vis-scroll-inner{height:320px;overflow:hidden;position:relative}
-.vis-scroll-inner img{width:100%;display:block}
-.vis-scroll-card:hover{border-color:rgba(201,146,42,0.4)}
-.vis-card-label{padding:16px 20px;background:#060F16}
-.vis-card-label strong{display:block;font-size:13px;color:var(--gold-light);margin-bottom:3px}
-.vis-card-label span{font-size:12px;color:rgba(255,255,255,0.4)}
+/* Two preview cards */
+.vis-cards{margin-top:28px;display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.vis-card{
+  background:rgba(255,255,255,0.04);
+  border:1px solid rgba(201,146,42,0.2);
+  border-radius:10px;overflow:hidden;
+  transition:border-color .3s;
+}
+.vis-card:hover{border-color:rgba(201,146,42,0.5)}
+.vis-card-media{
+  width:100%;
+  height:380px;
+  overflow:hidden;
+  position:relative;
+  background:#000;
+}
+/* Video card - hero animation */
+.vis-card-media video{
+  width:100%;height:100%;
+  object-fit:cover;
+  object-position:top;
+  display:block;
+}
+/* Image card - bottom of store */
+.vis-card-media img{
+  width:100%;
+  display:block;
+  position:absolute;
+  bottom:0;
+  left:0;
+}
+.vis-card-footer{
+  padding:16px 20px;
+  background:#0A0F14;
+  border-top:1px solid rgba(201,146,42,0.1);
+}
+.vis-card-footer strong{display:block;font-size:13px;color:var(--gold-light);margin-bottom:4px}
+.vis-card-footer span{font-size:12px;color:rgba(255,255,255,0.35)}
 
-/* WIREFRAME SECTION */
+/* WIREFRAME */
 .wireframe-section{background:white}
 .wireframe-layout{display:grid;grid-template-columns:1.2fr 1fr;gap:64px;align-items:start;margin-top:56px}
 .wireframe-visual{position:relative}
 .wireframe-img{width:100%;border:1px solid #E8E0D0;border-radius:6px;box-shadow:0 12px 40px rgba(0,0,0,0.1);display:block}
 .wireframe-badge{position:absolute;top:-14px;left:24px;background:var(--gold);color:var(--dark);font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;padding:6px 16px;border-radius:2px;font-weight:600}
-.wireframe-sections{display:flex;flex-direction:column;gap:12px;margin-top:8px}
-.wf-row{display:flex;align-items:flex-start;gap:14px;padding:14px 16px;background:var(--cream);border-radius:4px;border-left:3px solid var(--gold-pale);transition:border-color .2s}
+.wireframe-sections{display:flex;flex-direction:column;gap:10px;margin-top:8px}
+.wf-row{display:flex;align-items:flex-start;gap:14px;padding:12px 16px;background:var(--cream);border-radius:4px;border-left:3px solid var(--gold-pale);transition:border-color .2s}
 .wf-row:hover{border-color:var(--gold)}
 .wf-num{font-family:'DM Mono',monospace;font-size:11px;color:var(--gold);flex-shrink:0;margin-top:2px}
-.wf-name{font-size:13px;font-weight:600;color:var(--dark);margin-bottom:3px}
+.wf-name{font-size:13px;font-weight:600;color:var(--dark);margin-bottom:2px}
 .wf-desc{font-size:12px;color:var(--text-muted);line-height:1.5}
 
 /* CONTEXT */
@@ -176,7 +235,8 @@ footer p{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2px;color
   .hero-right{display:none}
   section{padding:56px 20px}
   .overview{padding:40px 20px}.overview-grid{grid-template-columns:1fr 1fr}
-  .gallery-grid{grid-template-columns:1fr}
+  .visual-hero-strip{padding:56px 20px}
+  .vis-cards{grid-template-columns:1fr}
   .wireframe-layout{grid-template-columns:1fr}
   .context-layout{grid-template-columns:1fr;gap:40px}
   .decisions-grid{grid-template-columns:1fr}
@@ -214,7 +274,7 @@ footer p{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2px;color
       <span class="tag">Brand Collab</span>
     </div>
     <div class="tools-row">
-      <span class="tools-label">Tools</span>
+      <span class="tools-label">Tools —</span>
       <span class="tool-badge ps">⬛ Photoshop</span>
       <span class="tool-badge ai">◆ Illustrator</span>
       <span class="tool-badge ae">▶ After Effects</span>
@@ -225,15 +285,20 @@ footer p{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2px;color
       <div><div class="metric-val">↑</div><div class="metric-label">High Performance</div></div>
     </div>
   </div>
+
+  <!-- PHONE MOCKUP with video + store scroll -->
   <div class="hero-right">
     <div class="phone-glow"></div>
     <div class="phone-wrap">
       <div class="phone-frame">
         <div class="phone-notch"></div>
         <div class="phone-screen">
-          <video autoplay muted loop playsinline style="width:100%;display:block">
+          <!-- Hero animation video plays first -->
+          <video autoplay muted loop playsinline>
             <source src="Adani_Hero__1_.mp4" type="video/mp4">
           </video>
+          <!-- Full store scrolls below -->
+          <img class="store-scroll" src="Biryani_Final_Adani.jpg" alt="Store">
         </div>
       </div>
     </div>
@@ -266,39 +331,39 @@ footer p{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2px;color
 <div class="visual-hero-strip" id="visuals">
   <div class="section-eyebrow">01 — Final Design</div>
   <h2 class="section-title reveal">Complete Store — Flavors of Ramadan</h2>
-  <p class="section-body reveal">Full mobile store design as delivered on Flipkart. Scroll through the two cards below to explore different sections of the store.</p>
+  <p class="section-body reveal">Full mobile store as delivered on Flipkart — hero animation, product sections, brand spotlight, and closing CTA.</p>
 
-  <!-- Full image -->
+  <!-- Full store image -->
   <div class="vis-main reveal">
-    <img src="Biryani_Final_Adani.jpg" alt="Full Store Design">
+    <img src="Biryani_Final_Adani.jpg" alt="Full Store">
     <div class="vis-main-label">
-      <strong>Full Store · Flavors of Ramadan</strong>
+      <strong>Complete Store Design · Flavors of Ramadan</strong>
       <span>Flipkart Mobile · Sponsored Store</span>
     </div>
   </div>
 
-  <!-- Two cards -->
-  <div class="vis-scroll-wrap">
-    <!-- Left: Hero Banner MP4 video -->
-    <div class="vis-scroll-card reveal">
-      <div class="vis-scroll-inner" style="height:360px">
-        <video autoplay muted loop playsinline style="width:100%;display:block;height:360px;object-fit:cover;object-position:top">
+  <!-- Two cards: video left, bottom store right -->
+  <div class="vis-cards">
+    <!-- Left: Animated Hero Banner video -->
+    <div class="vis-card reveal">
+      <div class="vis-card-media">
+        <video autoplay muted loop playsinline>
           <source src="Adani_Hero__1_.mp4" type="video/mp4">
         </video>
       </div>
-      <div class="vis-card-label">
+      <div class="vis-card-footer">
         <strong>Hero Banner — Animated</strong>
-        <span>After Effects · Fortune &amp; Tata · Ramadan theme</span>
+        <span>After Effects · Fortune &amp; Tata co-branded · Ramadan theme</span>
       </div>
     </div>
-    <!-- Right: Bottom half of store static -->
-    <div class="vis-scroll-card reveal">
-      <div class="vis-scroll-inner" style="height:360px;overflow:hidden">
-        <img src="Biryani_Final_Adani.jpg" alt="Products &amp; CTA" style="width:100%;display:block;margin-top:-55%">
+    <!-- Right: Bottom section of store - products + CTA -->
+    <div class="vis-card reveal">
+      <div class="vis-card-media">
+        <img src="Biryani_Final_Adani.jpg" alt="Products and CTA">
       </div>
-      <div class="vis-card-label">
+      <div class="vis-card-footer">
         <strong>Products + Biryani Corner CTA</strong>
-        <span>Deal cards · Round the clock · Closing CTA</span>
+        <span>Deal cards · Round the clock · Closing banner</span>
       </div>
     </div>
   </div>
@@ -309,7 +374,6 @@ footer p{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2px;color
   <div class="section-eyebrow">02 — Wireframe &amp; Structure</div>
   <h2 class="section-title reveal">Store architecture mapped before pixel one</h2>
   <p class="section-body reveal">The wireframe defined the full section hierarchy — hero toggles, deal card rails, brand spotlights, ATC sections, and the closing biryani corner — ensuring all sponsor slots were planned upfront.</p>
-
   <div class="wireframe-layout">
     <div class="wireframe-visual reveal">
       <div class="wireframe-badge">Wireframe / Content Plan</div>
@@ -317,38 +381,14 @@ footer p{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2px;color
     </div>
     <div>
       <div class="wireframe-sections">
-        <div class="wf-row">
-          <span class="wf-num">01</span>
-          <div><div class="wf-name">Animated Hero Banner</div><div class="wf-desc">Toggle-based: Biryani visual · Brand FSNs for Fortune &amp; Tata · Powered by Daawat strip</div></div>
-        </div>
-        <div class="wf-row">
-          <span class="wf-num">02</span>
-          <div><div class="wf-name">Co-sponsor Toggle</div><div class="wf-desc">Zoff, Farmley, Pro V, VKC Nuts product image slots mapped</div></div>
-        </div>
-        <div class="wf-row">
-          <span class="wf-num">03</span>
-          <div><div class="wf-name">Deal Cards Rail</div><div class="wf-desc">Rice / Oil &amp; Masala / Beverage — Adani, KRBL, Farmley, Tata Tea live product cards</div></div>
-        </div>
-        <div class="wf-row">
-          <span class="wf-num">04</span>
-          <div><div class="wf-name">Brands in Spotlight</div><div class="wf-desc">From Our Fields to Your Feast · Essentials by Tata · Pure Farms Pure Nutrition</div></div>
-        </div>
-        <div class="wf-row">
-          <span class="wf-num">05</span>
-          <div><div class="wf-name">Thin Flex / Cook Book</div><div class="wf-desc">Recipe content strip · Ramadan recipes integration</div></div>
-        </div>
-        <div class="wf-row">
-          <span class="wf-num">06</span>
-          <div><div class="wf-name">Brand ATC Rails</div><div class="wf-desc">Rice · Beverage · Oil · Masala — individual brand add-to-cart rails per category</div></div>
-        </div>
-        <div class="wf-row">
-          <span class="wf-num">07</span>
-          <div><div class="wf-name">Round the Clock Essentials</div><div class="wf-desc">Sehri vs Iftar split layout with brand allocation per occasion</div></div>
-        </div>
-        <div class="wf-row">
-          <span class="wf-num">08</span>
-          <div><div class="wf-name">Biryani Corner + YouTube + Explore More</div><div class="wf-desc">Closing CTA · KRBL, Adani, Zoff · Rotational video slot</div></div>
-        </div>
+        <div class="wf-row"><span class="wf-num">01</span><div><div class="wf-name">Animated Hero Banner</div><div class="wf-desc">Toggle-based: Biryani visual · Brand FSNs for Fortune &amp; Tata · Powered by Daawat strip</div></div></div>
+        <div class="wf-row"><span class="wf-num">02</span><div><div class="wf-name">Co-sponsor Toggle</div><div class="wf-desc">Zoff, Farmley, Pro V, VKC Nuts product image slots mapped</div></div></div>
+        <div class="wf-row"><span class="wf-num">03</span><div><div class="wf-name">Deal Cards Rail</div><div class="wf-desc">Rice / Oil &amp; Masala / Beverage — Adani, KRBL, Farmley, Tata Tea live product cards</div></div></div>
+        <div class="wf-row"><span class="wf-num">04</span><div><div class="wf-name">Brands in Spotlight</div><div class="wf-desc">From Our Fields to Your Feast · Essentials by Tata · Pure Farms Pure Nutrition</div></div></div>
+        <div class="wf-row"><span class="wf-num">05</span><div><div class="wf-name">Thin Flex / Cook Book</div><div class="wf-desc">Recipe content strip · Ramadan recipes integration</div></div></div>
+        <div class="wf-row"><span class="wf-num">06</span><div><div class="wf-name">Brand ATC Rails</div><div class="wf-desc">Rice · Beverage · Oil · Masala — individual brand add-to-cart rails per category</div></div></div>
+        <div class="wf-row"><span class="wf-num">07</span><div><div class="wf-name">Round the Clock Essentials</div><div class="wf-desc">Sehri vs Iftar split layout with brand allocation per occasion</div></div></div>
+        <div class="wf-row"><span class="wf-num">08</span><div><div class="wf-name">Biryani Corner + YouTube + Explore More</div><div class="wf-desc">Closing CTA · KRBL, Adani, Zoff · Rotational video slot</div></div></div>
       </div>
     </div>
   </div>
@@ -413,17 +453,17 @@ footer p{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2px;color
     <div class="decision-card reveal">
       <div class="decision-icon">🍚</div>
       <div class="decision-title">Storytelling Before Products</div>
-      <div class="decision-body">"Legacy of Biryani" editorial strip intentionally placed before the product grid. Cultural context — Mughal era origins, Pakki vs Kacchi, UNESCO listing — primed purchase intent for the rice section.</div>
+      <div class="decision-body">"Legacy of Biryani" editorial strip placed before the product grid. Cultural context — Mughal era origins, Pakki vs Kacchi, UNESCO listing — primed purchase intent for the rice section.</div>
     </div>
     <div class="decision-card reveal">
       <div class="decision-icon">✨</div>
       <div class="decision-title">Animated Hero in After Effects</div>
-      <div class="decision-body">Staggered product fly-ins, crescent particle effects, and a gentle idle loop — all animated in After Effects and exported within Flipkart's app file size constraints. Sequenced so brand logos appear after product desire is established.</div>
+      <div class="decision-body">Staggered product fly-ins, crescent particle effects, and a gentle idle loop — all animated in After Effects and exported within Flipkart's app file size constraints. Brand logos appear after product desire is established.</div>
     </div>
     <div class="decision-card reveal">
       <div class="decision-icon">🏷️</div>
       <div class="decision-title">7-Brand Visual Hierarchy</div>
-      <div class="decision-body">Strict hierarchy: Fortune &amp; Tata at hero scale, co-sponsors in a bottom strip. Deeper in the page, "Brands in Spotlight" gave each co-sponsor a dedicated moment — visible but never competing with the primary sponsors.</div>
+      <div class="decision-body">Fortune &amp; Tata at hero scale, co-sponsors in a bottom strip. Deeper in the page, "Brands in Spotlight" gave each co-sponsor a dedicated moment — visible but never competing with primary sponsors.</div>
     </div>
   </div>
 </section>
@@ -467,7 +507,7 @@ footer p{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2px;color
     <div class="anim-card reveal">
       <div class="anim-card-icon">🖼️</div>
       <div class="anim-card-title">Product Compositing in Photoshop</div>
-      <div class="anim-card-desc">All product cutouts, shadow work, and final compositing done in Photoshop before being handed to After Effects for animation.</div>
+      <div class="anim-card-desc">All product cutouts, shadow work, and final compositing done in Photoshop before animation in After Effects.</div>
       <span class="anim-card-tag">Compositing · PS</span>
     </div>
   </div>
@@ -499,19 +539,19 @@ footer p{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2px;color
     <div class="learnings">
       <div class="learning-item reveal">
         <div class="learning-title">Storytelling converts better than product density</div>
-        <div class="learning-body">The editorial strip added no products but increased downstream add-to-cart in the rice section — cultural context primes purchase intent.</div>
+        <div class="learning-body">The editorial strip added no products but increased downstream add-to-cart — cultural context primes purchase intent.</div>
       </div>
       <div class="learning-item reveal">
         <div class="learning-title">Nail brand hierarchy before design begins</div>
-        <div class="learning-body">Getting primary vs co-sponsor structure signed off upfront saved multiple revision rounds. Stakeholder alignment is a design deliverable.</div>
+        <div class="learning-body">Getting primary vs co-sponsor structure signed off upfront saved multiple revision rounds.</div>
       </div>
       <div class="learning-item reveal">
         <div class="learning-title">Sequencing beats complexity in animation</div>
-        <div class="learning-body">Simple, well-timed product float-ins felt more premium than elaborate effects — restraint in After Effects is a skill in itself.</div>
+        <div class="learning-body">Simple, well-timed product float-ins felt more premium than elaborate effects.</div>
       </div>
       <div class="learning-item reveal">
         <div class="learning-title">Every store needs a strong closing beat</div>
-        <div class="learning-body">The Biryani Corner CTA at the bottom became one of the highest-click zones. A strong close is as important as the hero.</div>
+        <div class="learning-body">The Biryani Corner CTA at the bottom became one of the highest-click zones.</div>
       </div>
     </div>
   </div>
@@ -527,14 +567,17 @@ footer p{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2px;color
 const starsEl=document.getElementById('stars');
 for(let i=0;i<55;i++){
   const s=document.createElement('div');s.className='star';
-  s.style.left=Math.random()*100+'%';s.style.top=Math.random()*100+'%';
+  s.style.left=Math.random()*100+'%';
+  s.style.top=Math.random()*100+'%';
   s.style.setProperty('--d',(2+Math.random()*4).toFixed(1)+'s');
   s.style.setProperty('--op',(0.3+Math.random()*0.5).toFixed(2));
   s.style.animationDelay=(Math.random()*4).toFixed(1)+'s';
   starsEl.appendChild(s);
 }
-// Reveal
-const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}})},{threshold:.1,rootMargin:'0px 0px -30px 0px'});
+// Scroll reveal
+const obs=new IntersectionObserver(es=>{
+  es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}})
+},{threshold:.1,rootMargin:'0px 0px -30px 0px'});
 document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
 </script>
 </body>
