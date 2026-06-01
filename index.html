@@ -320,32 +320,20 @@ footer p{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2px;color
     </div>
   </div>
 
-  <!-- HERO RIGHT: large video banner on top, phone below -->
+  <!-- HERO RIGHT: Only large video banner, no phone -->
   <div class="hero-right">
     <div class="phone-glow"></div>
-    <div style="display:flex;flex-direction:column;align-items:center;gap:20px;position:relative;z-index:1">
-
-      <!-- Large video banner -->
-      <div style="width:300px">
-        <div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2px;color:var(--gold);text-transform:uppercase;margin-bottom:8px;text-align:center">✦ Hero Banner · Animated</div>
-        <div style="border-radius:14px;overflow:hidden;border:2px solid rgba(201,146,42,0.6);box-shadow:0 12px 48px rgba(0,0,0,0.6)">
-          <video autoplay muted loop playsinline style="width:100%;display:block">
-            <source src="Adani_Hero__1_.mp4" type="video/mp4">
-          </video>
-        </div>
-        <div style="text-align:center;margin-top:8px;font-family:'DM Mono',monospace;font-size:9px;letter-spacing:1px;color:rgba(255,255,255,0.3);text-transform:uppercase">After Effects · Fortune &amp; Tata</div>
+    <div style="position:relative;z-index:1;width:100%;max-width:420px">
+      <div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2px;color:var(--gold);text-transform:uppercase;margin-bottom:10px;text-align:center">✦ Hero Banner · Animated · After Effects</div>
+      <div style="border-radius:16px;overflow:hidden;border:2px solid rgba(201,146,42,0.7);box-shadow:0 0 0 6px rgba(201,146,42,0.1),0 24px 64px rgba(0,0,0,0.7)">
+        <video id="heroVid" autoplay muted loop playsinline style="width:100%;display:block;background:#0A1620">
+          <source src="Adani_Hero__1_.mp4" type="video/mp4">
+          <source src="Adani_Hero__1_.mp4" type="video/webm">
+        </video>
       </div>
-
-      <!-- Phone mockup below video -->
-      <div class="phone-wrap">
-        <div class="phone-frame">
-          <div class="phone-notch"></div>
-          <div class="phone-screen" id="phoneScreen">
-            <img class="store-scroll" id="storeImg" src="Biryani_Final_Adani.jpg" alt="Store">
-          </div>
-        </div>
+      <div style="display:flex;justify-content:center;gap:16px;margin-top:12px">
+        <span style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:1px;color:rgba(255,255,255,0.3);text-transform:uppercase">Fortune · Tata Consumer</span>
       </div>
-
     </div>
   </div>
 </section>
@@ -387,20 +375,6 @@ footer p{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2px;color
     </div>
   </div>
 
-  <!-- Single full-width video card -->
-  <div class="vis-cards" style="grid-template-columns:1fr">
-    <div class="vis-card reveal">
-      <div class="vis-card-media" style="height:480px">
-        <video autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover;display:block">
-          <source src="Adani_Hero__1_.mp4" type="video/mp4">
-        </video>
-      </div>
-      <div class="vis-card-footer">
-        <strong>Hero Banner — Animated</strong>
-        <span>After Effects · Fortune &amp; Tata co-branded · Ramadan theme</span>
-      </div>
-    </div>
-  </div>
 </div>
 
 <!-- COLOR PALETTE -->
@@ -753,31 +727,23 @@ const obs=new IntersectionObserver(es=>{
 document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
 
 // Seamless phone scroll — JS-driven, no CSS animation break
+// Chrome autoplay fix — force play on interaction if needed
 (function(){
-  const screen = document.getElementById('phoneScreen');
-  const img = document.getElementById('storeImg');
-  if(!screen || !img) return;
-
-  let pos = 0;
-  let maxScroll = 0;
-  const speed = 0.5; // px per frame — smooth and continuous
-
-  function getMax(){
-    return img.offsetHeight - screen.offsetHeight;
+  const vid = document.getElementById('heroVid');
+  if(!vid) return;
+  // Try to play immediately
+  const p = vid.play();
+  if(p !== undefined){
+    p.catch(function(){
+      // Autoplay blocked — play on first user interaction
+      document.addEventListener('click', function(){
+        vid.play();
+      }, {once: true});
+      document.addEventListener('touchstart', function(){
+        vid.play();
+      }, {once: true});
+    });
   }
-
-  function tick(){
-    maxScroll = getMax();
-    if(maxScroll <= 0){ requestAnimationFrame(tick); return; }
-    pos += speed;
-    if(pos >= maxScroll) pos = 0; // instant reset to top — seamless
-    img.style.transform = 'translateY(-' + pos + 'px)';
-    requestAnimationFrame(tick);
-  }
-
-  // Start after image loads
-  if(img.complete){ tick(); }
-  else { img.onload = tick; }
 })();
 </script>
 </body>
