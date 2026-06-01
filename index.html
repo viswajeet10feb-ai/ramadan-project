@@ -77,20 +77,27 @@ section{padding:88px 48px}
 .overview-item-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2px;color:var(--gold);text-transform:uppercase;margin-bottom:10px}
 .overview-item-val{font-size:14px;color:rgba(255,255,255,0.8);line-height:1.6;font-weight:500}
 
-/* ── VISUAL SHOWCASE (big images first) ── */
-.visual-hero-strip{background:#060F16;padding:0}
-.vis-full{position:relative;overflow:hidden;cursor:pointer}
-.vis-full img{width:100%;display:block;transition:transform 12s ease}
-.vis-full:hover img{transform:translateY(calc(-100% + 100vh))}
-.vis-label{position:absolute;bottom:0;left:0;right:0;padding:20px 32px;background:linear-gradient(transparent,rgba(6,15,22,0.85));font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2px;color:rgba(255,255,255,0.4);text-transform:uppercase}
-.vis-hint{font-size:10px;color:var(--gold);margin-top:4px}
+/* ── VISUAL SHOWCASE ── */
+.visual-hero-strip{background:#060F16;padding:64px 48px}
+.visual-hero-strip .section-eyebrow{color:var(--gold)}
+.visual-hero-strip .section-title{color:white}
+.visual-hero-strip .section-body{color:rgba(255,255,255,0.45)}
 
-.gallery-grid{display:grid;grid-template-columns:1fr 1fr;gap:3px;background:#060F16}
-.gallery-item{position:relative;overflow:hidden;background:#060F16}
-.gallery-item img{width:100%;display:block;transition:transform .5s ease}
-.gallery-item:hover img{transform:scale(1.03)}
-.gallery-caption{position:absolute;bottom:0;left:0;right:0;padding:16px 20px;background:linear-gradient(transparent,rgba(6,15,22,0.9));font-size:12px;color:rgba(255,255,255,0.55);letter-spacing:.5px}
-.gallery-caption strong{display:block;color:var(--gold-light);font-size:13px;margin-bottom:3px}
+.vis-main{margin-top:48px;position:relative;border-radius:12px;overflow:hidden;border:1px solid rgba(201,146,42,0.25);box-shadow:0 32px 80px rgba(0,0,0,0.5)}
+.vis-main img{width:100%;display:block}
+.vis-main-label{padding:20px 28px;background:rgba(6,15,22,0.9);display:flex;align-items:center;justify-content:space-between}
+.vis-main-label span{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2px;color:rgba(255,255,255,0.4);text-transform:uppercase}
+.vis-main-label strong{font-size:13px;color:var(--gold-light)}
+
+.vis-scroll-wrap{margin-top:32px;display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.vis-scroll-card{background:rgba(255,255,255,0.04);border:1px solid rgba(201,146,42,0.15);border-radius:8px;overflow:hidden;transition:border-color .3s}
+.vis-scroll-card:hover{border-color:rgba(201,146,42,0.4)}
+.vis-scroll-inner{height:320px;overflow:hidden;position:relative}
+.vis-scroll-inner img{width:100%;display:block;transition:transform 6s ease}
+.vis-scroll-card:hover .vis-scroll-inner img{transform:translateY(calc(-100% + 320px)) !important}
+.vis-card-label{padding:16px 20px;background:#060F16}
+.vis-card-label strong{display:block;font-size:13px;color:var(--gold-light);margin-bottom:3px}
+.vis-card-label span{font-size:12px;color:rgba(255,255,255,0.4)}
 
 /* WIREFRAME SECTION */
 .wireframe-section{background:white}
@@ -253,45 +260,39 @@ footer p{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2px;color
   </div>
 </div>
 
-<!-- VISUAL SHOWCASE — BIG IMAGES FIRST -->
+<!-- VISUAL SHOWCASE -->
 <div class="visual-hero-strip" id="visuals">
-  <!-- Full store scroll -->
-  <div class="vis-full reveal">
+  <div class="section-eyebrow">01 — Final Design</div>
+  <h2 class="section-title reveal">Complete Store — Flavors of Ramadan</h2>
+  <p class="section-body reveal">Full mobile store design as delivered on Flipkart. Scroll through the two cards below to explore different sections of the store.</p>
+
+  <!-- Full image -->
+  <div class="vis-main reveal">
     <img src="Biryani_Final_Adani.jpg" alt="Full Store Design">
-    <div class="vis-label">
-      Complete Store Design — Flavors of Ramadan
-      <div class="vis-hint">↑ Hover to scroll through the full store</div>
+    <div class="vis-main-label">
+      <strong>Full Store · Flavors of Ramadan</strong>
+      <span>Flipkart Mobile · Sponsored Store</span>
     </div>
   </div>
 
-  <!-- Gallery of cropped details -->
-  <div class="gallery-grid">
-    <div class="gallery-item reveal">
-      <img src="Biryani_Final_Adani.jpg" alt="Hero Banner" style="object-fit:cover;height:380px;object-position:top">
-      <div class="gallery-caption">
-        <strong>Hero Banner</strong>
-        Animated · Fortune &amp; Tata co-branded · Ramadan theme
+  <!-- Two scroll cards -->
+  <div class="vis-scroll-wrap">
+    <div class="vis-scroll-card reveal">
+      <div class="vis-scroll-inner">
+        <img src="Biryani_Final_Adani.jpg" alt="Hero &amp; Categories">
+      </div>
+      <div class="vis-card-label">
+        <strong>Hero Banner + Category Sections</strong>
+        <span>Hover to scroll ↓</span>
       </div>
     </div>
-    <div class="gallery-item reveal">
-      <img src="Biryani_Final_Adani.jpg" alt="Product Sections" style="object-fit:cover;height:380px;object-position:0 35%">
-      <div class="gallery-caption">
-        <strong>Category &amp; Product Sections</strong>
-        Iftar essentials · Brands in spotlight · Deal cards
+    <div class="vis-scroll-card reveal">
+      <div class="vis-scroll-inner">
+        <img src="Biryani_Final_Adani.jpg" alt="Products &amp; CTA" style="transform:translateY(-30%)">
       </div>
-    </div>
-    <div class="gallery-item reveal">
-      <img src="Biryani_Final_Adani.jpg" alt="Biryani Corner" style="object-fit:cover;height:320px;object-position:0 70%">
-      <div class="gallery-caption">
-        <strong>Biryani Legacy &amp; Content Strip</strong>
-        Editorial storytelling · Cultural context
-      </div>
-    </div>
-    <div class="gallery-item reveal">
-      <img src="Biryani_Final_Adani.jpg" alt="Closing CTA" style="object-fit:cover;height:320px;object-position:0 90%">
-      <div class="gallery-caption">
-        <strong>Ultimate Biryani Corner</strong>
-        Closing CTA · KRBL · Adani · Zoff
+      <div class="vis-card-label">
+        <strong>Products + Biryani Corner CTA</strong>
+        <span>Hover to scroll ↓</span>
       </div>
     </div>
   </div>
