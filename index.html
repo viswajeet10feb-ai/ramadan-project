@@ -18,7 +18,7 @@ html{scroll-behavior:smooth}
 body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text);overflow-x:hidden}
 
 /* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:18px 48px;background:rgba(10,20,28,0.9);backdrop-filter:blur(12px);border-bottom:1px solid rgba(201,146,42,0.1)}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:18px 48px;background:rgba(10,20,28,0.9);backdrop-filter:blur(12px);border-bottom:1px solid rgba(201,146,42,0.2)}
 .nav-logo{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2px;color:var(--gold-light);text-transform:uppercase}
 .nav-links{display:flex;gap:28px;list-style:none}
 .nav-links a{font-size:12px;letter-spacing:1px;color:rgba(255,255,255,0.55);text-decoration:none;text-transform:uppercase;transition:color .2s}
@@ -86,7 +86,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
   display:block;
   will-change:transform;
 }
-.phone-glow{position:absolute;width:320px;height:320px;border-radius:50%;background:radial-gradient(circle,rgba(201,146,42,0.25) 0%,transparent 70%);top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none;z-index:1}
+.phone-glow{position:absolute;width:320px;height:320px;border-radius:50%;background:radial-gradient(circle,rgba(201,146,42,0.25) 0%,transparent 70%);top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none}
 
 /* Hero right layout */
 .hero-right{
@@ -209,7 +209,7 @@ section{padding:88px 48px}
 .wireframe-layout{display:grid;grid-template-columns:1.2fr 1fr;gap:64px;align-items:start;margin-top:56px}
 .wireframe-visual{position:relative}
 .wireframe-img{width:100%;border:1px solid #E8E0D0;border-radius:6px;box-shadow:0 12px 40px rgba(0,0,0,0.1);display:block}
-.wireframe-badge{position:absolute;top:-14px;left:24px;background:var(--gold);color:var(--dark);font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;padding:4px 12px;border-radius:3px}
+.wireframe-badge{position:absolute;top:-14px;left:24px;background:var(--gold);color:var(--dark);font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;padding:6px 16px;border-radius:2px;font-weight:600}
 .wireframe-sections{display:flex;flex-direction:column;gap:10px;margin-top:8px}
 .wf-row{display:flex;align-items:flex-start;gap:14px;padding:12px 16px;background:var(--cream);border-radius:4px;border-left:3px solid var(--gold-pale);transition:border-color .2s}
 .wf-row:hover{border-color:var(--gold)}
@@ -247,7 +247,7 @@ section{padding:88px 48px}
 .anim-card-icon{font-size:24px;margin-bottom:14px}
 .anim-card-title{font-size:15px;font-weight:600;color:var(--gold-light);margin-bottom:8px}
 .anim-card-desc{font-size:13px;line-height:1.7;color:rgba(255,255,255,0.4)}
-.anim-card-tag{display:inline-block;margin-top:14px;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:1px;color:var(--gold);background:rgba(201,146,42,0.1);padding:3px 10px;border-radius:2px}
+.anim-card-tag{display:inline-block;margin-top:14px;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:1px;color:var(--gold);background:rgba(201,146,42,0.1);padding:3px 10px;border-radius:2px;text-transform:uppercase}
 
 /* RESULTS */
 .results{background:white}
@@ -312,7 +312,7 @@ footer p{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2px;color
   <div class="hero-left">
     <div class="project-label">Flipkart Ads · Ramadan Campaign</div>
     <h1 class="hero-title">Flavors of<em>Ramadan</em></h1>
-    <p class="hero-subtitle">A sponsored store experience for Flipkart — themed around Biryani & Ramadan essentials, with animated hero banner, curated content sections, and multi-brand integration across all sections.</p>
+    <p class="hero-subtitle">A sponsored store experience for Flipkart — themed around Biryani &amp; Ramadan essentials, with animated hero banner, curated content sections, and multi-brand integration.</p>
     <div class="hero-tags">
       <span class="tag">Store Design</span>
       <span class="tag">Visual Design</span>
@@ -338,7 +338,7 @@ footer p{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2px;color
 <!-- FULL WIDTH VIDEO BANNER -->
 <div style="background:#000;width:100%;position:relative;overflow:hidden">
   <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:3px;color:var(--gold);text-transform:uppercase;text-align:center;padding:18px 0 14px;background:#060F16;border-bottom:1px solid rgba(201,146,42,0.2)">
-    ✦ Animated Hero Banner · After Effects · Fortune & Tata Consumer Products
+    ✦ Animated Hero Banner · After Effects · Fortune &amp; Tata Consumer Products
   </div>
   <video
     id="heroVid"
@@ -349,8 +349,7 @@ footer p{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2px;color
     preload="auto"
     style="width:100%;display:block;max-height:80vh;object-fit:contain;background:#000"
   >
-    <source src="ramadan-project/Adani_Hero__1_.mp4" type="video/mp4">
-    Your browser does not support the video tag.
+    <source src="Adani_Hero__1_.mp4" type="video/mp4">
   </video>
   <div style="position:absolute;bottom:0;left:0;right:0;height:60px;background:linear-gradient(transparent,rgba(0,0,0,0.6));pointer-events:none"></div>
 </div>
@@ -503,7 +502,7 @@ footer p{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2px;color
     <!-- Font 1: Khodijah -->
     <div class="reveal" style="padding:40px;background:var(--dark);border-radius:10px;border:1px solid rgba(201,146,42,0.2)">
       <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2px;color:var(--gold);text-transform:uppercase;margin-bottom:20px">Display / Hero Font</div>
-      <div style="font-size:64px;line-height:1.05;margin-bottom:6px;background:linear-gradient(135deg,#E8B84B,#C9922A);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">RAMADAN</div>
+      <div style="font-size:64px;line-height:1.05;margin-bottom:6px;background:linear-gradient(135deg,#E8B84B,#C9922A);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-family:'Georgia',serif;font-style:italic;letter-spacing:2px">Ramadan</div>
       <div style="font-family:'Poppins',sans-serif;font-size:20px;font-weight:700;color:white;margin-bottom:28px;letter-spacing:1px">FLAVORS OF</div>
       <div style="border-top:1px solid rgba(255,255,255,0.08);padding-top:20px;display:flex;flex-direction:column;gap:8px">
         <div style="display:flex;align-items:center;gap:10px">
@@ -518,7 +517,7 @@ footer p{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2px;color
     <div class="reveal" style="padding:40px;background:var(--cream);border-radius:10px;border:1px solid rgba(0,0,0,0.06)">
       <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2px;color:var(--gold);text-transform:uppercase;margin-bottom:20px">Body / UI Font</div>
       <div style="font-family:'Poppins',sans-serif;font-size:30px;font-weight:700;color:var(--dark);line-height:1.2;margin-bottom:10px">Stock up for<br>the perfect Iftar</div>
-      <div style="font-family:'Poppins',sans-serif;font-size:14px;color:var(--text-muted);margin-bottom:28px;line-height:1.7">Rice & richness · Crunch & indulge<br>Sizzle & spice · Festive flavors</div>
+      <div style="font-family:'Poppins',sans-serif;font-size:14px;color:var(--text-muted);margin-bottom:28px;line-height:1.7">Rice &amp; richness · Crunch &amp; indulge<br>Sizzle &amp; spice · Refresh &amp; revive</div>
       <div style="border-top:1px solid rgba(0,0,0,0.08);padding-top:20px;display:flex;flex-direction:column;gap:8px">
         <div style="display:flex;align-items:center;gap:10px">
           <span style="font-family:'DM Mono',monospace;font-size:10px;color:var(--text-muted);text-transform:uppercase;letter-spacing:1px">Font Name</span>
@@ -533,9 +532,9 @@ footer p{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2px;color
 
 <!-- WIREFRAME -->
 <section class="wireframe-section" id="wireframe">
-  <div class="section-eyebrow">04 — Wireframe & Structure</div>
+  <div class="section-eyebrow">04 — Wireframe &amp; Structure</div>
   <h2 class="section-title reveal">Store architecture mapped before pixel one</h2>
-  <p class="section-body reveal">The wireframe defined the full section hierarchy — hero toggles, deal card rails, brand spotlights, ATC sections, and the closing biryani corner — ensuring all seven sponsors were featured prominently.</p>
+  <p class="section-body reveal">The wireframe defined the full section hierarchy — hero toggles, deal card rails, brand spotlights, ATC sections, and the closing biryani corner — ensuring all sponsor slots were planned upfront.</p>
   <div class="wireframe-layout">
     <div class="wireframe-visual reveal">
       <div class="wireframe-badge">Wireframe / Content Plan</div>
@@ -543,14 +542,14 @@ footer p{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2px;color
     </div>
     <div>
       <div class="wireframe-sections">
-        <div class="wf-row"><span class="wf-num">01</span><div><div class="wf-name">Animated Hero Banner</div><div class="wf-desc">Toggle-based: Biryani visual · Brand FSNs for Fortune & Tata Consumer</div></div></div>
+        <div class="wf-row"><span class="wf-num">01</span><div><div class="wf-name">Animated Hero Banner</div><div class="wf-desc">Toggle-based: Biryani visual · Brand FSNs for Fortune &amp; Tata · Powered by Daawat strip</div></div></div>
         <div class="wf-row"><span class="wf-num">02</span><div><div class="wf-name">Co-sponsor Toggle</div><div class="wf-desc">Zoff, Farmley, Pro V, VKC Nuts product image slots mapped</div></div></div>
-        <div class="wf-row"><span class="wf-num">03</span><div><div class="wf-name">Deal Cards Rail</div><div class="wf-desc">Rice / Oil & Masala / Beverage — Adani, KRBL, Farmley, Tata Tea, etc</div></div></div>
-        <div class="wf-row"><span class="wf-num">04</span><div><div class="wf-name">Brands in Spotlight</div><div class="wf-desc">From Our Fields to Your Feast · Essentials by Tata · Pure Farms etc</div></div></div>
+        <div class="wf-row"><span class="wf-num">03</span><div><div class="wf-name">Deal Cards Rail</div><div class="wf-desc">Rice / Oil &amp; Masala / Beverage — Adani, KRBL, Farmley, Tata Tea live product cards</div></div></div>
+        <div class="wf-row"><span class="wf-num">04</span><div><div class="wf-name">Brands in Spotlight</div><div class="wf-desc">From Our Fields to Your Feast · Essentials by Tata · Pure Farms Pure Nutrition</div></div></div>
         <div class="wf-row"><span class="wf-num">05</span><div><div class="wf-name">Thin Flex / Cook Book</div><div class="wf-desc">Recipe content strip · Ramadan recipes integration</div></div></div>
-        <div class="wf-row"><span class="wf-num">06</span><div><div class="wf-name">Brand ATC Rails</div><div class="wf-desc">Rice · Beverage · Oil · Masala — individual brand add-to-cart rails</div></div></div>
+        <div class="wf-row"><span class="wf-num">06</span><div><div class="wf-name">Brand ATC Rails</div><div class="wf-desc">Rice · Beverage · Oil · Masala — individual brand add-to-cart rails per category</div></div></div>
         <div class="wf-row"><span class="wf-num">07</span><div><div class="wf-name">Round the Clock Essentials</div><div class="wf-desc">Sehri vs Iftar split layout with brand allocation per occasion</div></div></div>
-        <div class="wf-row"><span class="wf-num">08</span><div><div class="wf-name">Biryani Corner + YouTube + Explore More</div><div class="wf-desc">Closing CTA · KRBL, Adani, Zoff · Rotational hero messaging</div></div></div>
+        <div class="wf-row"><span class="wf-num">08</span><div><div class="wf-name">Biryani Corner + YouTube + Explore More</div><div class="wf-desc">Closing CTA · KRBL, Adani, Zoff · Rotational video slot</div></div></div>
       </div>
     </div>
   </div>
@@ -558,12 +557,12 @@ footer p{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2px;color
 
 <!-- CONTEXT -->
 <section class="context" id="context">
-  <div class="section-eyebrow">05 — Brief & Sponsors</div>
+  <div class="section-eyebrow">05 — Brief &amp; Sponsors</div>
   <h2 class="section-title reveal">Weaving 7 brands into one cultural moment</h2>
   <div class="context-layout">
     <div class="reveal">
-      <p class="section-body">Ramadan is a high-intent grocery season on Flipkart — users actively stock up for Sehri and Iftar. The brief was a premium, culturally warm sponsored store that felt curated, not overstuffed.</p>
-      <p class="section-body" style="margin-top:16px">The challenge: integrating two major brand identities (Fortune & Tata) with five co-sponsors under a single Ramadan × Biryani theme, without visual chaos. Solution: Tier the brands by prominence, give each a dedicated role.</p>
+      <p class="section-body">Ramadan is a high-intent grocery season on Flipkart — users actively stock up for Sehri and Iftar. The brief was a premium, culturally warm sponsored store that felt occasion-specific, not like a generic product page.</p>
+      <p class="section-body" style="margin-top:16px">The challenge: integrating two major brand identities (Fortune &amp; Tata) with five co-sponsors under a single Ramadan × Biryani theme, without any brand feeling secondary.</p>
       <div class="brand-logos">
         <div class="brand-group-label">Primary Sponsors</div>
         <div class="brand-pills">
@@ -596,7 +595,7 @@ footer p{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2px;color
       <div style="background:var(--teal);border-radius:8px;padding:24px;border:1px solid rgba(201,146,42,0.3);grid-column:span 2">
         <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2px;color:var(--gold-light);text-transform:uppercase;margin-bottom:8px">Result</div>
         <div style="font-size:15px;color:white;font-weight:600">✦ High Performance Store</div>
-        <div style="font-size:13px;color:rgba(255,255,255,0.5);margin-top:4px">Above-benchmark CTR & engagement during campaign window</div>
+        <div style="font-size:13px;color:rgba(255,255,255,0.5);margin-top:4px">Above-benchmark CTR &amp; engagement during campaign window</div>
       </div>
     </div>
   </div>
@@ -610,41 +609,41 @@ footer p{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2px;color
     <div class="decision-card reveal">
       <div class="decision-icon">🌙</div>
       <div class="decision-title">Deep Navy + Gold Color System</div>
-      <div class="decision-body">Custom Ramadan palette (navy #1A3A4A + gold #C9922A) instead of Flipkart's default yellow. Built in Photoshop with layered gradients — gave the store a premium, seasonal identity.</div>
+      <div class="decision-body">Custom Ramadan palette (navy #1A3A4A + gold #C9922A) instead of Flipkart's default yellow. Built in Photoshop with layered gradients — gave the store a premium, festive feel distinct from everyday listings.</div>
     </div>
     <div class="decision-card reveal">
       <div class="decision-icon">🍚</div>
       <div class="decision-title">Storytelling Before Products</div>
-      <div class="decision-body">"Legacy of Biryani" editorial strip placed before the product grid. Cultural context — Mughal era origins, Pakki vs Kacchi, UNESCO listing — primed purchase intent better than specs.</div>
+      <div class="decision-body">"Legacy of Biryani" editorial strip placed before the product grid. Cultural context — Mughal era origins, Pakki vs Kacchi, UNESCO listing — primed purchase intent for the rice section.</div>
     </div>
     <div class="decision-card reveal">
       <div class="decision-icon">✨</div>
       <div class="decision-title">Animated Hero in After Effects</div>
-      <div class="decision-body">Staggered product fly-ins, crescent particle effects, and a gentle idle loop — all animated in After Effects and exported within Flipkart's app file size constraints (no dropped frames).</div>
+      <div class="decision-body">Staggered product fly-ins, crescent particle effects, and a gentle idle loop — all animated in After Effects and exported within Flipkart's app file size constraints. Brand logos appear after product desire is established.</div>
     </div>
     <div class="decision-card reveal">
       <div class="decision-icon">🏷️</div>
       <div class="decision-title">7-Brand Visual Hierarchy</div>
-      <div class="decision-body">Fortune & Tata at hero scale, co-sponsors in a bottom strip. Deeper in the page, "Brands in Spotlight" gave each co-sponsor a dedicated moment — visible but not overwhelming.</div>
+      <div class="decision-body">Fortune &amp; Tata at hero scale, co-sponsors in a bottom strip. Deeper in the page, "Brands in Spotlight" gave each co-sponsor a dedicated moment — visible but never competing with primary sponsors.</div>
     </div>
   </div>
 </section>
 
 <!-- ANIMATION -->
 <section class="animation-section">
-  <div class="section-eyebrow" style="color:var(--gold)">07 — Motion & Animation</div>
+  <div class="section-eyebrow" style="color:var(--gold)">07 — Motion &amp; Animation</div>
   <h2 class="section-title">Hero banner built in After Effects</h2>
   <p class="section-body">Every animation served a purpose — brand recall, product desire, or dwell-time engagement.</p>
   <div class="anim-grid">
     <div class="anim-card reveal">
       <div class="anim-card-icon">🎬</div>
       <div class="anim-card-title">Product Float-in Sequence</div>
-      <div class="anim-card-desc">Fortune & Tata products enter from opposite sides with eased motion — a visual handshake between the two sponsors.</div>
+      <div class="anim-card-desc">Fortune &amp; Tata products enter from opposite sides with eased motion — a visual handshake between the two sponsors.</div>
       <span class="anim-card-tag">Hero · AE</span>
     </div>
     <div class="anim-card reveal">
       <div class="anim-card-icon">✨</div>
-      <div class="anim-card-title">Particle & Crescent Effects</div>
+      <div class="anim-card-title">Particle &amp; Crescent Effects</div>
       <div class="anim-card-desc">Looping golden particles evoking Ramadan lantern sparks. File-size optimised for Flipkart's in-app animation limits.</div>
       <span class="anim-card-tag">Atmosphere · AE</span>
     </div>
@@ -663,7 +662,7 @@ footer p{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2px;color
     <div class="anim-card reveal">
       <div class="anim-card-icon">📐</div>
       <div class="anim-card-title">Spec-compliant Export</div>
-      <div class="anim-card-desc">All assets rendered within Flipkart's file size & format specs. No dropped frames on mid-range Android.</div>
+      <div class="anim-card-desc">All assets rendered within Flipkart's file size &amp; format specs. No dropped frames on mid-range Android.</div>
       <span class="anim-card-tag">Technical</span>
     </div>
     <div class="anim-card reveal">
@@ -683,7 +682,7 @@ footer p{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2px;color
     <div class="result-item">
       <div class="result-num">2<span class="result-unit">×</span></div>
       <div class="result-label">Primary Sponsors</div>
-      <div class="result-desc">Fortune & Tata Consumer — major brand partnership for a seasonal store.</div>
+      <div class="result-desc">Fortune &amp; Tata Consumer — major brand partnership for a seasonal store.</div>
     </div>
     <div class="result-item">
       <div class="result-num">7</div>
