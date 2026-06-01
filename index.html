@@ -69,20 +69,56 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
   height:500px;
   position:relative;
 }
-/* Video in phone - plays the animated hero */
-.phone-screen video{
-  width:100%;
-  display:block;
-  object-fit:cover;
-}
-/* Below video - store image scrolls */
+/* Continuous seamless scroll - no break, no pause */
 .phone-screen .store-scroll{
   width:100%;
   display:block;
-  animation:scrollPhone 16s ease-in-out 1s infinite alternate;
+  animation:scrollPhone 20s linear infinite;
 }
-@keyframes scrollPhone{0%{transform:translateY(0)}100%{transform:translateY(-60%)}}
+@keyframes scrollPhone{
+  0%{transform:translateY(0)}
+  100%{transform:translateY(-66%)}
+}
 .phone-glow{position:absolute;width:320px;height:320px;border-radius:50%;background:radial-gradient(circle,rgba(201,146,42,0.25) 0%,transparent 70%);top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none}
+
+/* Hero right layout */
+.hero-right{
+  display:flex;
+  align-items:flex-start;
+  justify-content:center;
+  gap:20px;
+  position:relative;
+}
+
+/* Mini video banner */
+.mini-banner-wrap{
+  display:flex;flex-direction:column;gap:8px;
+  margin-top:40px;
+}
+.mini-banner-label{
+  font-family:'DM Mono',monospace;
+  font-size:9px;letter-spacing:2px;
+  color:var(--gold);text-transform:uppercase;
+}
+.mini-banner{
+  width:160px;
+  border-radius:10px;overflow:hidden;
+  border:2px solid rgba(201,146,42,0.5);
+  box-shadow:0 8px 32px rgba(0,0,0,0.5);
+  position:relative;
+}
+.mini-banner video{
+  width:100%;display:block;
+}
+.mini-banner-overlay{
+  position:absolute;bottom:0;left:0;right:0;
+  padding:8px 10px;
+  background:linear-gradient(transparent,rgba(0,0,0,0.7));
+  font-family:'DM Mono',monospace;
+  font-size:9px;letter-spacing:1px;
+  color:rgba(255,255,255,0.6);
+  text-transform:uppercase;
+}
 
 /* SECTIONS */
 section{padding:88px 48px}
@@ -254,8 +290,8 @@ footer p{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2px;color
   <ul class="nav-links">
     <li><a href="#overview">Overview</a></li>
     <li><a href="#visuals">Visuals</a></li>
+    <li><a href="#design-system">Colors</a></li>
     <li><a href="#wireframe">Wireframe</a></li>
-    <li><a href="#design">Design</a></li>
     <li><a href="#results">Results</a></li>
   </ul>
 </nav>
@@ -286,18 +322,27 @@ footer p{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2px;color
     </div>
   </div>
 
-  <!-- PHONE MOCKUP with video + store scroll -->
+  <!-- PHONE + MINI VIDEO side by side -->
   <div class="hero-right">
     <div class="phone-glow"></div>
+
+    <!-- Mini video banner preview TOP LEFT of phone -->
+    <div class="mini-banner-wrap">
+      <div class="mini-banner-label">Hero Banner · Animated</div>
+      <div class="mini-banner">
+        <video autoplay muted loop playsinline>
+          <source src="Adani_Hero__1_.mp4" type="video/mp4">
+        </video>
+        <div class="mini-banner-overlay">
+          <span>▶ After Effects</span>
+        </div>
+      </div>
+    </div>
+
     <div class="phone-wrap">
       <div class="phone-frame">
         <div class="phone-notch"></div>
         <div class="phone-screen">
-          <!-- Hero animation video plays first -->
-          <video autoplay muted loop playsinline>
-            <source src="Adani_Hero__1_.mp4" type="video/mp4">
-          </video>
-          <!-- Full store scrolls below -->
           <img class="store-scroll" src="Biryani_Final_Adani.jpg" alt="Store">
         </div>
       </div>
@@ -342,12 +387,11 @@ footer p{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2px;color
     </div>
   </div>
 
-  <!-- Two cards: video left, bottom store right -->
-  <div class="vis-cards">
-    <!-- Left: Animated Hero Banner video -->
+  <!-- Single full-width video card -->
+  <div class="vis-cards" style="grid-template-columns:1fr">
     <div class="vis-card reveal">
-      <div class="vis-card-media">
-        <video autoplay muted loop playsinline>
+      <div class="vis-card-media" style="height:480px">
+        <video autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover;display:block">
           <source src="Adani_Hero__1_.mp4" type="video/mp4">
         </video>
       </div>
@@ -356,22 +400,179 @@ footer p{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2px;color
         <span>After Effects · Fortune &amp; Tata co-branded · Ramadan theme</span>
       </div>
     </div>
-    <!-- Right: Bottom section of store - products + CTA -->
-    <div class="vis-card reveal">
-      <div class="vis-card-media">
-        <img src="Biryani_Final_Adani.jpg" alt="Products and CTA">
-      </div>
-      <div class="vis-card-footer">
-        <strong>Products + Biryani Corner CTA</strong>
-        <span>Deal cards · Round the clock · Closing banner</span>
-      </div>
-    </div>
   </div>
 </div>
 
+<!-- COLOR PALETTE -->
+<section style="background:#0E1E26;padding:88px 48px" id="design-system">
+  <div class="section-eyebrow" style="color:var(--gold)">02 — Color Palette</div>
+  <h2 class="section-title reveal" style="color:white">Colors that tell the Ramadan story</h2>
+  <p class="section-body reveal" style="color:rgba(255,255,255,0.45)">Every color was chosen for a reason — from the deep navy of midnight skies to the gold of lantern light.</p>
+
+  <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:16px;margin-top:56px">
+
+    <!-- Deep Teal -->
+    <div class="reveal" style="border-radius:10px;overflow:hidden;box-shadow:0 8px 32px rgba(0,0,0,0.4)">
+      <div style="height:160px;background:#1A3A4A;position:relative;display:flex;align-items:flex-end;padding:16px">
+        <div style="width:32px;height:32px;border-radius:50%;border:3px solid rgba(255,255,255,0.2);background:#1A3A4A"></div>
+      </div>
+      <div style="background:#111E26;padding:16px">
+        <div style="font-family:'DM Mono',monospace;font-size:12px;color:var(--gold-light);margin-bottom:4px">#1A3A4A</div>
+        <div style="font-size:13px;font-weight:600;color:white;margin-bottom:4px">Midnight Teal</div>
+        <div style="font-size:11px;color:rgba(255,255,255,0.35);line-height:1.5">Primary background · Store base · Hero BG</div>
+      </div>
+    </div>
+
+    <!-- Gold -->
+    <div class="reveal" style="border-radius:10px;overflow:hidden;box-shadow:0 8px 32px rgba(0,0,0,0.4)">
+      <div style="height:160px;background:#C9922A;position:relative;display:flex;align-items:flex-end;padding:16px">
+        <div style="width:32px;height:32px;border-radius:50%;border:3px solid rgba(255,255,255,0.3);background:#C9922A"></div>
+      </div>
+      <div style="background:#111E26;padding:16px">
+        <div style="font-family:'DM Mono',monospace;font-size:12px;color:var(--gold-light);margin-bottom:4px">#C9922A</div>
+        <div style="font-size:13px;font-weight:600;color:white;margin-bottom:4px">Lantern Gold</div>
+        <div style="font-size:11px;color:rgba(255,255,255,0.35);line-height:1.5">Borders · Dividers · Section accents</div>
+      </div>
+    </div>
+
+    <!-- Gold Light -->
+    <div class="reveal" style="border-radius:10px;overflow:hidden;box-shadow:0 8px 32px rgba(0,0,0,0.4)">
+      <div style="height:160px;background:#E8B84B;position:relative;display:flex;align-items:flex-end;padding:16px">
+        <div style="width:32px;height:32px;border-radius:50%;border:3px solid rgba(255,255,255,0.3);background:#E8B84B"></div>
+      </div>
+      <div style="background:#111E26;padding:16px">
+        <div style="font-family:'DM Mono',monospace;font-size:12px;color:var(--gold-light);margin-bottom:4px">#E8B84B</div>
+        <div style="font-size:13px;font-weight:600;color:white;margin-bottom:4px">Saffron Glow</div>
+        <div style="font-size:11px;color:rgba(255,255,255,0.35);line-height:1.5">Headlines · Logo text · Highlights</div>
+      </div>
+    </div>
+
+    <!-- Cream -->
+    <div class="reveal" style="border-radius:10px;overflow:hidden;box-shadow:0 8px 32px rgba(0,0,0,0.4)">
+      <div style="height:160px;background:#FAF7F0;position:relative;display:flex;align-items:flex-end;padding:16px">
+        <div style="width:32px;height:32px;border-radius:50%;border:3px solid rgba(0,0,0,0.1);background:#FAF7F0"></div>
+      </div>
+      <div style="background:#111E26;padding:16px">
+        <div style="font-family:'DM Mono',monospace;font-size:12px;color:var(--gold-light);margin-bottom:4px">#FAF7F0</div>
+        <div style="font-size:13px;font-weight:600;color:white;margin-bottom:4px">Ivory Cream</div>
+        <div style="font-size:11px;color:rgba(255,255,255,0.35);line-height:1.5">Section backgrounds · Category cards</div>
+      </div>
+    </div>
+
+    <!-- Dark -->
+    <div class="reveal" style="border-radius:10px;overflow:hidden;box-shadow:0 8px 32px rgba(0,0,0,0.4)">
+      <div style="height:160px;background:#0E1E26;border:1px solid rgba(255,255,255,0.08);position:relative;display:flex;align-items:flex-end;padding:16px">
+        <div style="width:32px;height:32px;border-radius:50%;border:3px solid rgba(255,255,255,0.15);background:#0E1E26"></div>
+      </div>
+      <div style="background:#111E26;padding:16px">
+        <div style="font-family:'DM Mono',monospace;font-size:12px;color:var(--gold-light);margin-bottom:4px">#0E1E26</div>
+        <div style="font-size:13px;font-weight:600;color:white;margin-bottom:4px">Abyss Dark</div>
+        <div style="font-size:11px;color:rgba(255,255,255,0.35);line-height:1.5">Deep BG · Overlay · Nav background</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Color usage in elements -->
+  <div style="margin-top:40px;padding:32px;background:rgba(255,255,255,0.03);border-radius:10px;border:1px solid rgba(201,146,42,0.15)">
+    <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2px;color:var(--gold);text-transform:uppercase;margin-bottom:20px">Color usage in store elements</div>
+    <div style="display:flex;flex-wrap:wrap;gap:12px">
+      <div style="display:flex;align-items:center;gap:8px;padding:8px 16px;background:#1A3A4A;border-radius:4px;border:1px solid rgba(201,146,42,0.3)">
+        <div style="width:10px;height:10px;border-radius:50%;background:#1A3A4A;border:2px solid #E8B84B"></div>
+        <span style="font-size:12px;color:rgba(255,255,255,0.7)">Store background</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:8px;padding:8px 16px;background:#C9922A;border-radius:4px">
+        <div style="width:10px;height:10px;border-radius:50%;background:#C9922A;border:2px solid white"></div>
+        <span style="font-size:12px;color:white;font-weight:600">CTA buttons</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:8px;padding:8px 16px;background:#FAF7F0;border-radius:4px">
+        <div style="width:10px;height:10px;border-radius:50%;background:#FAF7F0;border:2px solid #C9922A"></div>
+        <span style="font-size:12px;color:#1A3A4A;font-weight:600">Category tiles</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:8px;padding:8px 16px;background:rgba(255,255,255,0.05);border:1px solid rgba(201,146,42,0.2);border-radius:4px">
+        <div style="width:10px;height:10px;border-radius:50%;background:#E8B84B"></div>
+        <span style="font-size:12px;color:rgba(255,255,255,0.7)">Discount badges · Headings</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:8px;padding:8px 16px;background:rgba(255,255,255,0.05);border:1px solid rgba(201,146,42,0.2);border-radius:4px">
+        <div style="width:10px;height:10px;border-radius:50%;background:#0E1E26;border:2px solid #555"></div>
+        <span style="font-size:12px;color:rgba(255,255,255,0.7)">Overlay sections · Brand cards</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TYPOGRAPHY -->
+<section style="background:white;padding:88px 48px">
+  <div class="section-eyebrow">03 — Typography</div>
+  <h2 class="section-title reveal">Typefaces that carry the visual tone</h2>
+  <p class="section-body reveal">Two typefaces — one for warmth and occasion, one for clarity and structure.</p>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-top:56px">
+
+    <!-- Font 1: Noto Nastaliq / Decorative headline -->
+    <div class="reveal" style="padding:40px;background:var(--dark);border-radius:10px;border:1px solid rgba(201,146,42,0.2)">
+      <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2px;color:var(--gold);text-transform:uppercase;margin-bottom:20px">Display / Hero Font</div>
+      <div style="font-family:'Playfair Display',serif;font-size:56px;font-weight:900;color:white;line-height:1;margin-bottom:8px">Ramadan</div>
+      <div style="font-family:'Playfair Display',serif;font-size:28px;font-style:italic;color:var(--gold-light);margin-bottom:24px">Flavors of</div>
+      <div style="border-top:1px solid rgba(255,255,255,0.08);padding-top:20px">
+        <div style="font-size:13px;color:rgba(255,255,255,0.5);margin-bottom:6px">Font: <span style="color:var(--gold-light);font-weight:600">Noto Nastaliq Urdu / Custom Script</span></div>
+        <div style="font-size:12px;color:rgba(255,255,255,0.3);line-height:1.6">Used in: Hero banner title · "Flavors of Ramadan" heading · Section display text</div>
+        <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap">
+          <span style="font-size:11px;padding:4px 10px;background:rgba(201,146,42,0.1);border:1px solid rgba(201,146,42,0.3);border-radius:2px;color:var(--gold)">Bold 700</span>
+          <span style="font-size:11px;padding:4px 10px;background:rgba(201,146,42,0.1);border:1px solid rgba(201,146,42,0.3);border-radius:2px;color:var(--gold)">Black 900</span>
+          <span style="font-size:11px;padding:4px 10px;background:rgba(201,146,42,0.1);border:1px solid rgba(201,146,42,0.3);border-radius:2px;color:var(--gold)">Italic</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Font 2: Body / UI font -->
+    <div class="reveal" style="padding:40px;background:var(--cream);border-radius:10px;border:1px solid rgba(0,0,0,0.06)">
+      <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2px;color:var(--gold);text-transform:uppercase;margin-bottom:20px">Body / UI Font</div>
+      <div style="font-family:'DM Sans',sans-serif;font-size:32px;font-weight:600;color:var(--dark);line-height:1.2;margin-bottom:8px">Stock up for<br>the perfect Iftar</div>
+      <div style="font-family:'DM Sans',sans-serif;font-size:15px;color:var(--text-muted);margin-bottom:24px;line-height:1.6">Rice & richness · Crunch & indulge<br>Sizzle & spice · Refresh & revive</div>
+      <div style="border-top:1px solid rgba(0,0,0,0.08);padding-top:20px">
+        <div style="font-size:13px;color:var(--text-muted);margin-bottom:6px">Font: <span style="color:var(--teal);font-weight:600">Flipkart Sans / System UI</span></div>
+        <div style="font-size:12px;color:var(--text-muted);line-height:1.6">Used in: Section headings · Product names · Category labels · Body copy</div>
+        <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap">
+          <span style="font-size:11px;padding:4px 10px;background:white;border:1px solid #DDD;border-radius:2px;color:var(--teal)">Regular 400</span>
+          <span style="font-size:11px;padding:4px 10px;background:white;border:1px solid #DDD;border-radius:2px;color:var(--teal)">Medium 500</span>
+          <span style="font-size:11px;padding:4px 10px;background:white;border:1px solid #DDD;border-radius:2px;color:var(--teal)">Bold 700</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Type scale -->
+  <div class="reveal" style="margin-top:32px;padding:36px;background:var(--dark);border-radius:10px;border:1px solid rgba(201,146,42,0.15)">
+    <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2px;color:var(--gold);text-transform:uppercase;margin-bottom:24px">Type Scale — Store Elements</div>
+    <div style="display:flex;flex-direction:column;gap:16px">
+      <div style="display:flex;align-items:baseline;gap:24px;border-bottom:1px solid rgba(255,255,255,0.05);padding-bottom:16px">
+        <span style="font-family:'DM Mono',monospace;font-size:10px;color:rgba(255,255,255,0.3);width:120px;flex-shrink:0">Hero Title</span>
+        <span style="font-size:11px;color:rgba(255,255,255,0.25);width:80px;flex-shrink:0">48–64px</span>
+        <span style="font-family:'Playfair Display',serif;font-size:32px;font-weight:900;color:white">Flavors of Ramadan</span>
+      </div>
+      <div style="display:flex;align-items:baseline;gap:24px;border-bottom:1px solid rgba(255,255,255,0.05);padding-bottom:16px">
+        <span style="font-family:'DM Mono',monospace;font-size:10px;color:rgba(255,255,255,0.3);width:120px;flex-shrink:0">Section Heading</span>
+        <span style="font-size:11px;color:rgba(255,255,255,0.25);width:80px;flex-shrink:0">20–24px</span>
+        <span style="font-size:22px;font-weight:700;color:rgba(255,255,255,0.85)">Stock up for the perfect Iftar</span>
+      </div>
+      <div style="display:flex;align-items:baseline;gap:24px;border-bottom:1px solid rgba(255,255,255,0.05);padding-bottom:16px">
+        <span style="font-family:'DM Mono',monospace;font-size:10px;color:rgba(255,255,255,0.3);width:120px;flex-shrink:0">Category Label</span>
+        <span style="font-size:11px;color:rgba(255,255,255,0.25);width:80px;flex-shrink:0">14–16px</span>
+        <span style="font-size:15px;font-weight:600;color:var(--gold-light)">Rice & richness</span>
+      </div>
+      <div style="display:flex;align-items:baseline;gap:24px">
+        <span style="font-family:'DM Mono',monospace;font-size:10px;color:rgba(255,255,255,0.3);width:120px;flex-shrink:0">Product Name</span>
+        <span style="font-size:11px;color:rgba(255,255,255,0.25);width:80px;flex-shrink:0">12–13px</span>
+        <span style="font-size:13px;color:rgba(255,255,255,0.5)">Daawat - 5kg Original Basmati Rice</span>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- WIREFRAME -->
 <section class="wireframe-section" id="wireframe">
-  <div class="section-eyebrow">02 — Wireframe &amp; Structure</div>
+  <div class="section-eyebrow">04 — Wireframe &amp; Structure</div>
   <h2 class="section-title reveal">Store architecture mapped before pixel one</h2>
   <p class="section-body reveal">The wireframe defined the full section hierarchy — hero toggles, deal card rails, brand spotlights, ATC sections, and the closing biryani corner — ensuring all sponsor slots were planned upfront.</p>
   <div class="wireframe-layout">
@@ -396,7 +597,7 @@ footer p{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2px;color
 
 <!-- CONTEXT -->
 <section class="context" id="context">
-  <div class="section-eyebrow">03 — Brief &amp; Sponsors</div>
+  <div class="section-eyebrow">05 — Brief &amp; Sponsors</div>
   <h2 class="section-title reveal">Weaving 7 brands into one cultural moment</h2>
   <div class="context-layout">
     <div class="reveal">
@@ -442,7 +643,7 @@ footer p{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2px;color
 
 <!-- DESIGN DECISIONS -->
 <section class="decisions" id="design">
-  <div class="section-eyebrow">04 — Design Decisions</div>
+  <div class="section-eyebrow">06 — Design Decisions</div>
   <h2 class="section-title reveal">Intentional choices behind the visual language</h2>
   <div class="decisions-grid">
     <div class="decision-card reveal">
@@ -470,7 +671,7 @@ footer p{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2px;color
 
 <!-- ANIMATION -->
 <section class="animation-section">
-  <div class="section-eyebrow" style="color:var(--gold)">05 — Motion &amp; Animation</div>
+  <div class="section-eyebrow" style="color:var(--gold)">07 — Motion &amp; Animation</div>
   <h2 class="section-title">Hero banner built in After Effects</h2>
   <p class="section-body">Every animation served a purpose — brand recall, product desire, or dwell-time engagement.</p>
   <div class="anim-grid">
@@ -515,7 +716,7 @@ footer p{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2px;color
 
 <!-- RESULTS -->
 <section class="results" id="results">
-  <div class="section-eyebrow">06 — Results</div>
+  <div class="section-eyebrow">08 — Results</div>
   <h2 class="section-title reveal">High-performing sponsored store</h2>
   <div class="results-grid">
     <div class="result-item">
