@@ -149,14 +149,149 @@ section{padding:80px 48px}
 /* ── VISUAL STORE ── */
 .visuals-section{background:white;padding:80px 48px}
 .visuals-section .section-eyebrow{color:var(--purple)}
-.vis-main{margin-top:40px;border-radius:12px;overflow:hidden;border:1px solid rgba(70,23,128,0.15);box-shadow:0 24px 64px rgba(70,23,128,0.12)}
-.vis-main img{width:100%;display:block}
-.vis-main-label{
-  padding:16px 24px;background:var(--purple);
-  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;
+
+/* Side by side layout */
+.vis-layout{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:40px;
+  align-items:start;
+  margin-top:40px;
 }
-.vis-main-label strong{font-size:13px;color:white}
-.vis-main-label span{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2px;color:rgba(255,255,255,0.45);text-transform:uppercase}
+
+/* Left - store image */
+.vis-store-wrap{
+  display:flex;flex-direction:column;gap:0;
+  border-radius:12px;overflow:hidden;
+  border:1px solid rgba(70,23,128,0.12);
+  box-shadow:0 16px 48px rgba(70,23,128,0.1);
+}
+.vis-store-label{
+  padding:12px 20px;
+  background:var(--purple);
+  display:flex;align-items:center;justify-content:space-between;
+}
+.vis-tag{
+  font-family:'DM Mono',monospace;
+  font-size:10px;letter-spacing:2px;
+  color:rgba(255,255,255,0.8);
+  text-transform:uppercase;
+}
+.vis-store-img-wrap{
+  overflow:hidden;
+  max-height:520px;
+  background:var(--off-white);
+}
+.vis-store-img{
+  width:100%;display:block;
+}
+.vis-store-footer{
+  padding:14px 20px;
+  background:var(--off-white);
+  border-top:1px solid rgba(70,23,128,0.08);
+  display:flex;flex-direction:column;gap:4px;
+}
+.vis-store-footer strong{font-size:13px;color:var(--text)}
+.vis-store-footer span{font-size:11px;color:var(--text-muted)}
+
+/* Right - phone mockup */
+.vis-phone-wrap{
+  display:flex;flex-direction:column;align-items:center;gap:20px;
+  position:sticky;top:80px;
+}
+.vis-phone-label{
+  width:100%;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.vis-scroll-hint{
+  font-family:'DM Mono',monospace;
+  font-size:10px;letter-spacing:1px;
+  color:var(--text-muted);
+  text-transform:uppercase;
+}
+
+/* Phone frame */
+.phone-mock{
+  width:100%;
+  display:flex;justify-content:center;
+}
+.phone-mock-frame{
+  width:220px;
+  background:#0A1620;
+  border-radius:32px;
+  border:3px solid rgba(70,23,128,0.6);
+  box-shadow:
+    0 0 0 5px rgba(70,23,128,0.1),
+    0 32px 64px rgba(70,23,128,0.25),
+    0 8px 24px rgba(0,0,0,0.3);
+  overflow:hidden;
+  position:relative;
+}
+.phone-mock-notch{
+  width:70px;height:20px;
+  background:#0A1620;
+  border-radius:0 0 12px 12px;
+  margin:0 auto;
+  position:relative;z-index:2;
+}
+.phone-mock-screen{
+  height:440px;
+  overflow:hidden;
+  position:relative;
+  background:#FAF7F0;
+}
+.phone-mock-screen img{
+  width:100%;
+  display:block;
+  will-change:transform;
+}
+/* Scrollbar on phone */
+.phone-scrollbar{
+  position:absolute;
+  right:6px;top:20px;bottom:12px;
+  width:3px;
+  z-index:10;
+}
+.phone-scrollbar-track{
+  width:3px;height:100%;
+  background:rgba(255,255,255,0.1);
+  border-radius:2px;
+  position:relative;
+}
+.phone-scrollbar-thumb{
+  width:3px;
+  background:rgba(70,23,128,0.6);
+  border-radius:2px;
+  position:absolute;
+  top:0;
+  height:25%;
+  transition:top 0.1s linear;
+}
+
+/* Section labels */
+.phone-sections{
+  width:100%;
+  display:flex;flex-direction:column;gap:8px;
+}
+.phone-sec-item{
+  display:flex;align-items:center;gap:10px;
+  padding:7px 12px;
+  background:var(--off-white);
+  border-radius:6px;
+  border-left:3px solid var(--purple);
+  font-size:12px;color:var(--text-muted);
+}
+.phone-sec-dot{
+  width:7px;height:7px;border-radius:50%;
+  background:var(--purple);flex-shrink:0;
+}
+
+@media(max-width:768px){
+  .vis-layout{grid-template-columns:1fr}
+  .vis-phone-wrap{position:static}
+  .phone-mock-frame{width:180px}
+  .phone-mock-screen{height:360px}
+}
 
 /* ── WIREFRAME ── */
 .wireframe-section{background:white}
@@ -388,7 +523,7 @@ footer p{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2px;color
 <div class="video-section">
   <div class="video-label">✦ Animated Hero Banner · <span>After Effects</span> · Fortune &amp; Tata Consumer Products</div>
   <video id="heroVid" autoplay muted loop playsinline preload="auto">
-    <source src="Adani_Hero.mp4" type="video/mp4">
+    <source src="assets/video/hero-banner.mp4" type="video/mp4">
   </video>
 </div>
 
@@ -419,12 +554,68 @@ footer p{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2px;color
   <div class="section-eyebrow">01 — Final Design</div>
   <h2 class="section-title reveal">Complete Store — Flavors of Ramadan</h2>
   <p class="section-body reveal">Full mobile store as delivered on Flipkart — hero animation, product sections, brand spotlight, and closing CTA.</p>
-  <div class="vis-main reveal">
-    <img src="Biryani_Final_Adani.jpg" alt="Full Store Design">
-    <div class="vis-main-label">
-      <strong>Complete Store Design · Flavors of Ramadan</strong>
-      <span>Flipkart Mobile · Sponsored Store</span>
+
+  <div class="vis-layout reveal">
+
+    <!-- Left: Store image reduced size -->
+    <div class="vis-store-wrap">
+      <div class="vis-store-label">
+        <span class="vis-tag">Full Store Design</span>
+      </div>
+      <div class="vis-store-img-wrap">
+        <img src="assets/images/store-full.jpg" alt="Full Store Design" class="vis-store-img">
+      </div>
+      <div class="vis-store-footer">
+        <strong>Complete Store · Flavors of Ramadan</strong>
+        <span>Flipkart Mobile · Sponsored Store</span>
+      </div>
     </div>
+
+    <!-- Right: Phone mockup with scroll -->
+    <div class="vis-phone-wrap">
+      <div class="vis-phone-label">
+        <span class="vis-tag">Mobile Preview</span>
+        <span class="vis-scroll-hint">↕ Auto scrolling</span>
+      </div>
+      <div class="phone-mock">
+        <div class="phone-mock-frame">
+          <div class="phone-mock-notch"></div>
+          <div class="phone-mock-screen" id="mockScreen">
+            <img src="assets/images/store-full.jpg" alt="Store Preview" id="mockImg">
+          </div>
+          <!-- Scroll bar indicator -->
+          <div class="phone-scrollbar">
+            <div class="phone-scrollbar-track">
+              <div class="phone-scrollbar-thumb" id="scrollThumb"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Section labels -->
+      <div class="phone-sections">
+        <div class="phone-sec-item">
+          <div class="phone-sec-dot"></div>
+          <span>Hero Banner</span>
+        </div>
+        <div class="phone-sec-item">
+          <div class="phone-sec-dot"></div>
+          <span>Category Grid</span>
+        </div>
+        <div class="phone-sec-item">
+          <div class="phone-sec-dot"></div>
+          <span>Brands Spotlight</span>
+        </div>
+        <div class="phone-sec-item">
+          <div class="phone-sec-dot"></div>
+          <span>Product Deals</span>
+        </div>
+        <div class="phone-sec-item">
+          <div class="phone-sec-dot"></div>
+          <span>Biryani Corner</span>
+        </div>
+      </div>
+    </div>
+
   </div>
 </div>
 
@@ -529,7 +720,7 @@ footer p{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2px;color
   <div class="wireframe-layout">
     <div class="wireframe-visual reveal">
       <div class="wireframe-badge">Wireframe / Content Plan</div>
-      <img src="wireframe.png" alt="Store Wireframe" class="wireframe-img">
+      <img src="assets/images/wireframe.png" alt="Store Wireframe" class="wireframe-img">
     </div>
     <div class="wireframe-sections reveal">
       <div class="wf-row"><span class="wf-num">01</span><div><div class="wf-name">Animated Hero Banner</div><div class="wf-desc">Toggle-based · Fortune &amp; Tata FSNs · Powered by Daawat</div></div></div>
@@ -654,7 +845,38 @@ const obs=new IntersectionObserver(es=>{
 },{threshold:.08,rootMargin:'0px 0px -20px 0px'});
 document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
 
-// Video autoplay fix for Chrome
+// Phone mockup smooth scroll
+(function(){
+  const screen = document.getElementById('mockScreen');
+  const img    = document.getElementById('mockImg');
+  const thumb  = document.getElementById('scrollThumb');
+  if(!screen||!img) return;
+  let pos=0, max=0, speed=0.5, raf;
+
+  function getMax(){
+    max = img.offsetHeight - screen.offsetHeight;
+    if(max<0) max=0;
+  }
+  function tick(){
+    if(max>0){
+      pos += speed;
+      if(pos >= max) pos = 0;
+      img.style.transform = 'translateY(-'+pos+'px)';
+      // update scrollbar thumb
+      if(thumb){
+        const pct = pos/max;
+        const trackH = screen.offsetHeight;
+        const thumbH = trackH*0.22;
+        thumb.style.height = thumbH+'px';
+        thumb.style.top = (pct*(trackH-thumbH))+'px';
+      }
+    }
+    raf = requestAnimationFrame(tick);
+  }
+  img.onload = function(){ getMax(); tick(); };
+  if(img.complete){ getMax(); tick(); }
+  window.addEventListener('resize', getMax);
+})();
 (function(){
   const vid=document.getElementById('heroVid');
   if(!vid)return;
